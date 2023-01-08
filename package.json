@@ -1,5 +1,5 @@
 {
-  "name": "tcp-local-tunnel",
+  "name": "peasplayer-tcp-local-tunnel",
   "version": "1.0.6",
   "engines": {
     "node": ">=8.5.0"
@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jayu/tcp-local-tunnel/tree/master"
+    "url": "https://github.com/Peasplayer/tcp-local-tunnel/tree/master"
   },
-  "homepage": "https://github.com/jayu/tcp-local-tunnel#tcp-local-tunnel",
-  "author": "Jakub Mazurek @jayu",
+  "homepage": "https://github.com/Peasplayer/tcp-local-tunnel#tcp-local-tunnel",
+  "author": "Jakub Mazurek @jayu, Peasplayer (Fork)",
   "license": "MIT",
   "devDependencies": {
     "body-parser": "^1.18.2",

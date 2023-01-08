@@ -62,7 +62,7 @@ client(
 ```javascript
 const { proxyServer } = require('tcp-local-tunnel');
 
-proxyServer({
+proxyServer.start({
   proxyPort: 80, // remote port to access exposed local machine
   tunnelPort: 8010 // tunnel port
 });
@@ -117,7 +117,8 @@ client(
   {
     host: 'localhost',
     port: serverPort
-  },
+  }, 
+  100, // number of attempts to connect to the remote
   40 // number of concurrent open tunnels
 );
 ```
@@ -129,7 +130,7 @@ const { proxyServer } = require('../index.js');
 
 /* internet server proxy configuration */
 
-proxyServer({
+proxyServer.start({
   proxyPort: 80,
   tunnelPort: 8010
 });
@@ -151,6 +152,7 @@ client(
     host: 'localhost', // local server host or ip
     port: 3000 // local server port
   },
+  100, // number of attempts to connect to the remote, default is 100  
   10 // number of concurent open tunnels, default is 10
 );
 ```
@@ -160,11 +162,16 @@ client(
 ```javascript
 const { proxyServer } = require('tcp-local-tunnel')
 
-proxyServer({
+proxyServer.start({
   proxyPort: 80, // remote port to access exposed local machine
     tunnelPort: 8010, // tunnel port
     timeout : 5000 // time after request is rejected when there are no tunnel connections
 })
+
+proxyServer.stop(
+    () => console.log("Tunnel closed"), // callback when the tunnel is closed
+    () => console.log("Proxy closed") // callback when the proxy is closed
+)
 ```
 
 ## Alternatives
